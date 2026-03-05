@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Paleta de Cores (Tons de Azul e Neutros) */
+    --primary-color: #4682B4;
+    /* SteelBlue */
+    --primary-hover: #356791;
+    --primary-light: #E8F0F6;
+
+    --bg-body: #f8f9fa;
+    /* Fundo cinza minimalista */
+    --bg-card: #ffffff;
+
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+
+    /* Sombras Premium & Arredondamentos */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.03);
+    /* Sombra base para cards */
+    --shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
+
+    --radius-md: 10px;
+    --radius-lg: 16px;
+
+    --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================
+   HEADER PRINCIPAL (Apenas Dashboard/PDV)
+========================================== */
+.main-header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.1rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+}
+
+/* ==========================================
+   ESTRUTURA DE CARDS (Flutuantes e Limpos)
+========================================== */
+.form-card,
+.table-container,
+.floating-container {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 2.5rem;
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    /* Borda muito sutil para definir limite */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-container:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   TIPOGRAFIA
+========================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    /* Aperto de caracter típico de startups */
+}
+
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+   BOTÕES (Clicáveis, Modernos)
+========================================== */
+.btn {
+    border-radius: var(--radius-md);
+    padding: 0.625rem 1.25rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(70, 130, 180, 0.25);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--primary-hover);
+    box-shadow: 0 6px 16px rgba(70, 130, 180, 0.35);
+    transform: translateY(-1px);
+    color: white;
+}
+
+.btn-light {
+    background-color: #ffffff;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-light:hover {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    border-color: #d1d5db;
+}
+
+/* Botão Voltar (Páginas Internas) */
+.btn-back {
+    background: transparent;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem 0.5rem 0.25rem;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    color: var(--text-main);
+    background-color: #ffffff;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+}
+
+/* ==========================================
+   INPUTS DE FORMULÁRIO (Off-white)
+========================================== */
+.form-control,
+.form-select {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    background-color: #fcfcfc;
+    /* Levissimamente cinza para destacar se for branco no fundo */
+    transition: all 0.2s ease;
+    box-shadow: none;
+    color: var(--text-main);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--primary-light);
+    outline: none;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #4b5563;
+    font-size: 0.875rem;
+    margin-bottom: 0.4rem;
+}
+
+/* ==========================================
+   TABELAS MODERNAS (Sem linhas verticais)
+========================================== */
+.table-modern {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-modern th {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.table-modern td {
+    padding: 1.25rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.table-modern tbody tr:last-child td {
+    border-bottom: none;
+    /* Deixa o card mais limpo ao final */
+}
+
+.table-modern tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.table-modern tbody tr:hover {
+    background-color: #fbfbfb;
+}
+
+/* Status Badges */
+.badge-soft-primary {
+    background-color: var(--primary-light);
+    color: var(--primary-hover);
+    font-weight: 600;
+    padding: 0.4em 0.75em;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.badge-soft-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    font-weight: 600;
+    padding: 0.4em 0.75em;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.badge-soft-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+    font-weight: 600;
+    padding: 0.4em 0.75em;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.badge-soft-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    font-weight: 600;
+    padding: 0.4em 0.75em;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
